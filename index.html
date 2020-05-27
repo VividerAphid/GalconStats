@@ -12,6 +12,9 @@
 	<canvas id="mapCan"></canvas>
 	<script>
 		var map = [];
-		
+		var g = document.getElementById("mapCan").getContext("2d");
+
+		map = loadMap();
+		render(map, g);
 	</script>
 </body>
