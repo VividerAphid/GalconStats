@@ -3,8 +3,18 @@ body {
 	background-color:#222;
 	font-size:20px;
 }
+#holder {
+	display: inline-block;
+}
 #mapCan {
 	border: 3px solid rgb(175, 174, 174);
 	border-radius: 5px;
-	width: 80%;
+	width: 75%;
+	left: 0;
+}
+#statBox {
+	border: 3px solid rgb(175, 174, 174);
+	border-radius: 5px;
+	width: 15%;
+	right: 0;
 }

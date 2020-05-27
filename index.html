@@ -9,10 +9,22 @@
 
 </head>
 <body>
-	<canvas id="mapCan"></canvas>
+	<div id="holder">
+		<div>
+			<canvas id="mapCan"></canvas>
+		</div>
+		<div id="statBox">
+			Some mins mins mins
+		</div>
+	</div>
+	
 	<script>
 		var map = [];
-		var g = document.getElementById("mapCan").getContext("2d");
+		var canvas = document.getElementById("mapCan");
+		var g = canvas.getContext("2d");
+
+		canvas.width = 1000;
+		canvas.height = 1000;
 
 		map = loadMap();
 		render(map, g);
