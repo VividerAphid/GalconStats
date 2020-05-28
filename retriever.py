@@ -2,9 +2,9 @@ import urllib.request
 
 print('Retrieving!')
 
-url = 'http://www.galcon.com/g2/logs'
+url = 'http://www.galcon.com/g2/logs/'
 
-targs = ['/GALAXY.txt', '/HITS.txt']
+targs = ['GALAXY.txt', 'HITS.txt']
 
 stamp = "1"
 
