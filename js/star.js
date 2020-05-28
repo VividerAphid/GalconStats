@@ -68,5 +68,5 @@ star.prototype.convertRoutes = function(rout){
 }
 
 star.prototype.convertCoord = function(ic){
-    
+    return ic + 1250;
 }
