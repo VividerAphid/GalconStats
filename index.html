@@ -5,6 +5,8 @@
 	<script src="js/star.js"></script>
 	<script src="js/mainlib.js"></script>
 	<link rel="stylesheet" href="index.css">
+	<link rel="file" href="GALAXY.txt">
+	
 
 
 </head>
@@ -17,7 +19,6 @@
 			Some mins mins mins
 		</div>
 	</div>
-	
 	<script>
 		var map = [];
 		var canvas = document.getElementById("mapCan");
@@ -28,5 +29,7 @@
 
 		map = loadMap();
 		render(map, g);
+
+		readFiles();
 	</script>
 </body>

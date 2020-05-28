@@ -1,7 +1,7 @@
 function star(id, x, y, name, value, clanId, clanName, colour, routes, factionId, production){
     this.id = id;
-    this.x = x;
-    this.y = y;
+    this.x = this.convertCoord(x);
+    this.y = this.convertCoord(y);
     this.name = name;
     this.value = value;
     this.clanId = clanId;
@@ -13,6 +13,8 @@ function star(id, x, y, name, value, clanId, clanName, colour, routes, factionId
 
     this.radius = 10;
     this.selected = false;
+    this.isConst = false;
+    this.isPrize = false;
 }
 
 star.prototype.drawStar = function(G){
@@ -63,4 +65,8 @@ star.prototype.convertRoutes = function(rout){
         routeStr[r] = routeStr[r] * 1;
     }
     return routeStr;
+}
+
+star.prototype.convertCoord = function(ic){
+    
 }
