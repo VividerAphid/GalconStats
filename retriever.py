@@ -32,9 +32,14 @@ def prep_stamp():
 
     return stamp
     
-
-baby = prep_stamp()
 gm = 'GM-5-26-2020/'
+baby = prep_stamp()
 prep_directory('/media/PISERVERSTO/galaxyRawFiles/GM-5-26-2020', baby)
 retrieve_files(gm, baby)
-print(time)
+
+gm_running = True
+
+while gm_running :
+    sleep_time = 60 - time.localtime(time.time()).tm_min
+    print('sleeping for ' + sleep_time + ' minutes. See you soon')
+    time.sleep(sleep_time * 60)
