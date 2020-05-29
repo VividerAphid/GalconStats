@@ -17,15 +17,18 @@ function loadMap(){
 }
 
 function readFiles(){
-    var rawMap = [];
+    var rawData = [];
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            //console.log(this.responseText.split("\n"));//Do the things here
-            rawMap = this.responseText.split("\n");
-            console.log(rawMap);
+            //Do the things here
+            rawData = this.responseText.split("\n");
+            console.log(rawData);
         }
     };
     xhttp.open("GET", "GALAXY.txt", true);
+    xhttp.send();
+
+    xhttp.open("GET", "FACTIONS.txt", true);
     xhttp.send();
 }   
