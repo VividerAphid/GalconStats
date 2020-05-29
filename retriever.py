@@ -56,6 +56,10 @@ last_modified = last_modified[0:len(last_modified)-7]
 while gm_running :
 
     print(last_modified)
+    poke = urllib.request.urlopen('http://www.galcon.com/g2/logs/GALAXY.txt', timeout=30).headers['last-modified']
+    
+    if last_modified == poke[0:len(poke)-7]:
+        print("We have a winner, lets get em")
 
     sleep_time = 60 - time.localtime(time.time()).tm_min
     print('Sleeping for ' + str(sleep_time) + ' minutes. See you soon')
