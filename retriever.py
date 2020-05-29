@@ -9,12 +9,19 @@ def retrieve_files(gmFold, hourFold):
     url = 'http://www.galcon.com/g2/logs/'
     files = ['GALAXY.txt', 'HITS.txt', 'FACTIONS.txt', 'CLANS.txt', 'LOGS.txt']
     path = '/media/PISERVERSTO/galaxyRawFiles/'
+    path2 = '/media/PISERVERSTO/serv/'
 
     urllib.request.urlretrieve(url + files[0], path + gmFold + hourFold + '/' + files[0])
     urllib.request.urlretrieve(url + files[1], path + gmFold + hourFold + '/' + files[1])
     urllib.request.urlretrieve(url + files[2], path + gmFold + hourFold + '/' + files[2])
     urllib.request.urlretrieve(url + files[3], path + gmFold + hourFold + '/' + files[3])
     urllib.request.urlretrieve(url + files[4], path + gmFold + hourFold + '/' + files[4])
+
+    urllib.request.urlretrieve(url + files[0], path2 + files[0])
+    urllib.request.urlretrieve(url + files[1], path2 + files[1])
+    urllib.request.urlretrieve(url + files[2], path2 + files[2])
+    urllib.request.urlretrieve(url + files[3], path2 + files[3])
+    urllib.request.urlretrieve(url + files[4], path2 + files[4])
 
 def prep_directory(parent, newDir):
     print('preparing new folder...')
@@ -41,5 +48,5 @@ gm_running = True
 
 while gm_running :
     sleep_time = 60 - time.localtime(time.time()).tm_min
-    print('sleeping for ' + str(sleep_time) + ' minutes. See you soon')
+    print('Sleeping for ' + str(sleep_time) + ' minutes. See you soon')
     time.sleep(sleep_time * 60)
