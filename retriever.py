@@ -41,5 +41,5 @@ gm_running = True
 
 while gm_running :
     sleep_time = 60 - time.localtime(time.time()).tm_min
-    print('sleeping for ' + sleep_time + ' minutes. See you soon')
+    print('sleeping for ' + str(sleep_time) + ' minutes. See you soon')
     time.sleep(sleep_time * 60)
