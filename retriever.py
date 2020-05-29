@@ -23,7 +23,15 @@ def prep_directory(parent, newDir):
     except OSError as error:  
         print(error)
 
-prep_directory('/media/PISERVERSTO/galaxyRawFiles/GM-5-26-2020', '5-29-2020-1700')
+def prep_stamp():
+    epoc = time.time()
+    big = time.localtime(epoc)
 
-time.sleep(20)
-print('awake!')
+    stamp = str(big.tm_mon) + '-' + str(big.tm_mday) + '-' + str(big.tm_year)+ '-' + str(big.tm_hour) + '00'
+
+    return stamp
+    
+
+baby = prep_stamp()
+prep_directory('/media/PISERVERSTO/galaxyRawFiles/GM-5-26-2020', baby)
+print(time)
