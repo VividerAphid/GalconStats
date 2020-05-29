@@ -17,10 +17,13 @@ function loadMap(){
 }
 
 function readFiles(){
+    var rawMap = [];
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText.split("\n"));//Do the things here
+            //console.log(this.responseText.split("\n"));//Do the things here
+            rawMap = this.responseText.split("\n");
+            console.log(rawMap);
         }
     };
     xhttp.open("GET", "GALAXY.txt", true);
