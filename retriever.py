@@ -51,6 +51,7 @@ retrieve_files(gm + baby + '/', baby2)
 
 gm_running = True
 last_modified = urllib.request.urlopen('http://www.galcon.com/g2/logs/GALAXY.txt', timeout=30).headers['last-modified']
+last_modified = last_modified[0:len(last_modified)-7]
 
 while gm_running :
 
