@@ -50,11 +50,10 @@ prep_directory('/media/PISERVERSTO/galaxyRawFiles/GM-5-26-2020/' + baby , baby2)
 retrieve_files(gm + baby + '/', baby2)
 
 gm_running = True
+last_modified = urllib.request.urlopen('http://www.galcon.com/g2/logs/GALAXY.txt', timeout=30).headers['last-modified']
 
 while gm_running :
 
-    conn = urllib.request.urlopen('http://www.galcon.com/g2/logs/GALAXY.txt', timeout=30)
-    last_modified = conn.headers['last-modified']
     print(last_modified)
 
     sleep_time = 60 - time.localtime(time.time()).tm_min
