@@ -31,17 +31,22 @@ def prep_directory(parent, newDir):
     except OSError as error:  
         print(error)
 
-def prep_stamp():
+def prep_stamp(style):
     epoc = time.time()
     big = time.localtime(epoc)
 
-    stamp = str(big.tm_mon) + '-' + str(big.tm_mday) + '-' + str(big.tm_year)+ '-' + str(big.tm_hour) + '00'
-
-    return stamp
+    if style == 0:
+        return str(big.tm_mon) + '-' + str(big.tm_mday) + '-' + str(big.tm_year)
+    elif style == 1:
+        return str(big.tm_hour) + '00'
+    else:
+        return str(big.tm_mon) + '-' + str(big.tm_mday) + '-' + str(big.tm_year)+ '-' + str(big.tm_hour) + '00'
     
 gm = 'GM-5-26-2020/'
-baby = prep_stamp()
+baby = prep_stamp(0)
 prep_directory('/media/PISERVERSTO/galaxyRawFiles/GM-5-26-2020', baby)
+baby2 = prep_stamp(1)
+prep_directory('/media/PISERVERSTO/galaxyRawFiles/GM-5-26-2020/' + baby , baby2)
 retrieve_files(gm, baby)
 
 gm_running = True
