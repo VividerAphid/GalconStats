@@ -1,5 +1,6 @@
 import urllib.request
 import os
+import time
 
 
 def retrieve_files():
@@ -23,3 +24,5 @@ def prep_directory(parent, newDir):
         print(error)
 
 prep_directory('/media/PISERVERSTO/galaxyRawFiles/GM-5-26-2020', '5-29-2020-1700')
+
+time.sleep(20)
