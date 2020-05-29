@@ -47,7 +47,7 @@ baby = prep_stamp(0)
 prep_directory('/media/PISERVERSTO/galaxyRawFiles/GM-5-26-2020', baby)
 baby2 = prep_stamp(1)
 prep_directory('/media/PISERVERSTO/galaxyRawFiles/GM-5-26-2020/' + baby , baby2)
-retrieve_files(gm, baby)
+retrieve_files(gm + baby + '/', baby2)
 
 gm_running = True
 
