@@ -22,4 +22,4 @@ def prep_directory(parent, newDir):
     except OSError as error:  
         print(error)
 
-prep_directory('/media/PISERVERSTO/galaxyRawFiles/', 'tst')
+prep_directory('/media/PISERVERSTO/galaxyRawFiles/GM-5-26-2020', '5-29-2020-17:00')
