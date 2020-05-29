@@ -16,7 +16,7 @@ function loadMap(){
     return map;
 }
 
-function readFiles(){
+function readFile(target){
     var rawData = [];
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -26,9 +26,8 @@ function readFiles(){
             console.log(rawData);
         }
     };
-    xhttp.open("GET", "GALAXY.txt", true);
+    xhttp.open("GET", target, true);
     xhttp.send();
 
-    xhttp.open("GET", "FACTIONS.txt", true);
-    xhttp.send();
+    return rawData;
 }   
