@@ -52,6 +52,11 @@ retrieve_files(gm + baby + '/', baby2)
 gm_running = True
 
 while gm_running :
+
+    conn = urllib.request.urlopen('http://www.galcon.com/g2/logs/GALAXY.txt', timeout=30)
+    last_modified = conn.headers['last-modified']
+    print(last_modified)
+
     sleep_time = 60 - time.localtime(time.time()).tm_min
     print('Sleeping for ' + str(sleep_time) + ' minutes. See you soon')
     time.sleep(sleep_time * 60)
