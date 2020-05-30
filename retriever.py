@@ -42,9 +42,16 @@ def prep_stamp(style):
     else:
         return str(big.tm_mon) + '-' + str(big.tm_mday) + '-' + str(big.tm_year)+ '-' + str(big.tm_hour) + '00'
     
-def new_hour(gmc):
+def new_day(gmc):
     baby = prep_stamp(0)
     prep_directory('/media/PISERVERSTO/galaxyRawFiles/' + gmc, baby)
+
+def new_hour(gmc):
+
+    if time.localtime(time.time()).tm_hour == 0:
+        new_day(gmc)
+        
+    baby = prep_stamp(0)
     baby2 = prep_stamp(1)
     prep_directory('/media/PISERVERSTO/galaxyRawFiles/'+ gmc + baby , baby2)
     retrieve_files(gm + baby + '/', baby2)
@@ -52,6 +59,7 @@ def new_hour(gmc):
 gm = 'GM-5-26-2020/'
 
 gm_running = True
+
 last_modified = urllib.request.urlopen('http://www.galcon.com/g2/logs/GALAXY.txt', timeout=30).headers['last-modified']
 last_modified = last_modified[0:len(last_modified)-7]
 sleep_time = 0
