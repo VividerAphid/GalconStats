@@ -73,6 +73,7 @@ while gm_running :
         last_modified = poke[0:len(poke)-7]
         new_hour(gm)
         sleep_time = 60 - time.localtime(time.time()).tm_min
+        print('Fetched the newest copy on ' + last_modified)
     else:
         print('No stats new stats yet...')
         sleep_time = 3
