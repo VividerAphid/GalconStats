@@ -42,25 +42,31 @@ def prep_stamp(style):
     else:
         return str(big.tm_mon) + '-' + str(big.tm_mday) + '-' + str(big.tm_year)+ '-' + str(big.tm_hour) + '00'
     
+def new_hour(gmc):
+    baby = prep_stamp(0)
+    prep_directory('/media/PISERVERSTO/galaxyRawFiles/' + gmc, baby)
+    baby2 = prep_stamp(1)
+    prep_directory('/media/PISERVERSTO/galaxyRawFiles/'+ gmc + baby , baby2)
+    retrieve_files(gm + baby + '/', baby2)
+
 gm = 'GM-5-26-2020/'
-baby = prep_stamp(0)
-prep_directory('/media/PISERVERSTO/galaxyRawFiles/GM-5-26-2020', baby)
-baby2 = prep_stamp(1)
-prep_directory('/media/PISERVERSTO/galaxyRawFiles/GM-5-26-2020/' + baby , baby2)
-retrieve_files(gm + baby + '/', baby2)
 
 gm_running = True
 last_modified = urllib.request.urlopen('http://www.galcon.com/g2/logs/GALAXY.txt', timeout=30).headers['last-modified']
 last_modified = last_modified[0:len(last_modified)-7]
+sleep_time = 0
 
 while gm_running :
 
-    print(last_modified)
     poke = urllib.request.urlopen('http://www.galcon.com/g2/logs/GALAXY.txt', timeout=30).headers['last-modified']
     
-    if last_modified == poke[0:len(poke)-7]:
-        print("We have a winner, lets get em")
+    if last_modified != poke[0:len(poke)-7]:
+        print('New hour! Fetch!')
+        new_hour(gm)
+        sleep_time = 60 - time.localtime(time.time()).tm_min
+    else:
+        print('No stats new stats yet...')
+        sleep_time = 5
 
-    sleep_time = 60 - time.localtime(time.time()).tm_min
     print('Sleeping for ' + str(sleep_time) + ' minutes. See you soon')
     time.sleep(sleep_time * 60)
