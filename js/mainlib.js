@@ -23,6 +23,7 @@ function readFile(target){
         if (this.readyState == 4 && this.status == 200) {
             //Do the things here
             rawData = this.responseText.split("\n");
+            console.log("huh?");
             console.log(rawData);
         }
     };
@@ -34,6 +35,8 @@ function readFile(target){
 
 function parseData(raw){
     var converted = [];
+    console.log("raw in parseData:");
+    console.log(raw);
     for(var r = 0; r < raw.length; r++){
         converted[r] = raw[r].split("\t");
     }
