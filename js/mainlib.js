@@ -17,26 +17,23 @@ function loadMap(){
 }
 
 function readFile(target){
-    var rawData = [];
+    var data = [];
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             //Do the things here
-            rawData = this.responseText.split("\n");
-            console.log("huh?");
-            console.log(rawData);
+            data = parseData(this.responseText.split("\n"));
+            console.log(data);
         }
     };
     xhttp.open("GET", target, true);
     xhttp.send();
 
-    return rawData;
+    return data;
 }
 
 function parseData(raw){
     var converted = [];
-    console.log("raw in parseData:");
-    console.log(raw);
     for(var r = 0; r < raw.length; r++){
         converted[r] = raw[r].split("\t");
     }
