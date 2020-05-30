@@ -50,7 +50,7 @@ def new_hour(gmc):
 
     if time.localtime(time.time()).tm_hour == 0:
         new_day(gmc)
-        
+
     baby = prep_stamp(0)
     baby2 = prep_stamp(1)
     prep_directory('/media/PISERVERSTO/galaxyRawFiles/'+ gmc + baby , baby2)
@@ -70,11 +70,12 @@ while gm_running :
     
     if last_modified != poke[0:len(poke)-7]:
         print('New hour! Fetch!')
+        last_modified = poke[0:len(poke)-7]
         new_hour(gm)
         sleep_time = 60 - time.localtime(time.time()).tm_min
     else:
         print('No stats new stats yet...')
-        sleep_time = 5
+        sleep_time = 3
 
     print('Sleeping for ' + str(sleep_time) + ' minutes. See you soon')
     time.sleep(sleep_time * 60)
