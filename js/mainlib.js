@@ -30,4 +30,12 @@ function readFile(target){
     xhttp.send();
 
     return rawData;
-}   
+}
+
+function parseData(raw){
+    var converted = [];
+    for(var r = 0; r < raw.length; r++){
+        converted[r] = raw[r].split("\t");
+    }
+    return converted;
+}

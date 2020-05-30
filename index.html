@@ -24,12 +24,14 @@
 		var canvas = document.getElementById("mapCan");
 		var g = canvas.getContext("2d");
 
-		canvas.width = 1500;
-		canvas.height = 1500;
+		canvas.width = 2500;
+		canvas.height = 2500;
 
 		map = loadMap();
 		render(map, g);
 
-		//readFile();
+		var data = readFile("FACTIONS.txt");
+		console.log(data);
+		console.log(parseData(data));
 	</script>
 </body>
