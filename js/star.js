@@ -60,7 +60,6 @@ star.prototype.drawRoutes = function(G, map){
 
 star.prototype.convertRoutes = function(rout){
     var routeStr = rout.split(";");
-    console.log(routeStr);
     for(var r = 0; r < routeStr.length; r++){
         routeStr[r] = routeStr[r] * 1;
     }

@@ -4,6 +4,7 @@
 
 	<script src="js/star.js"></script>
 	<script src="js/mainlib.js"></script>
+	<script src="js/utils.js"></script>
 	<link rel="stylesheet" href="index.css">
 	<link rel="file" href="GALAXY.txt">
 	
@@ -20,6 +21,7 @@
 		</div>
 	</div>
 	<script>
+		document.title = adjectives[Math.floor(Math.random() * adjectives.length)] + " Landing Pad";
 		var map = [];
 		var canvas = document.getElementById("mapCan");
 		var g = canvas.getContext("2d");
