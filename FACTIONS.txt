@@ -1,4 +1,4 @@
 id	color	name	tag	item	score
-790	db00ff	Bone	BONE	ship-p222	2956
-791	ffdb00	Feather	FEAT	ship-p224	3699
-792	00ffdb	Footprints	FOOT	ship-p310	2938
+790	db00ff	Bone	BONE	ship-p222	19334
+791	ffdb00	Feather	FEAT	ship-p224	15847
+792	00ffdb	Footprints	FOOT	ship-p310	5343
