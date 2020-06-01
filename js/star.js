@@ -39,10 +39,11 @@ star.prototype.drawStar = function(G){
 star.prototype.drawRoutes = function(G, map){
     var reps = this.routes.length;
     for(var r = 0; r < reps; r++){
-        var connectee = map[this.routes[r]].id;
+        var connectee = (map[this.routes[r]].id) -1;
         if(connectee > this.id){
             G.beginPath();
             G.lineWidth = 3;
+            
             if(this.factionId == map[connectee].factionId){
                 G.fillStyle = this.colour;
                 G.strokeStyle = this.colour;
