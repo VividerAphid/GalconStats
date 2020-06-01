@@ -24,6 +24,7 @@ function readFile(target){
         if (this.readyState == 4 && this.status == 200) {
             //Do the things here
             data = parseData(this.responseText.split("\n"));
+            console.log("Done?");
         }
     };
     xhttp.open("GET", target, true);
