@@ -23,7 +23,7 @@ function readFile(target){
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             //Do the things here
-            data = parseData(this.responseText.split("\n"));
+            data = setTimeout(parseData(this.responseText.split("\n")), 1000);           
             console.log("Done?");
         }
     };
