@@ -21,16 +21,16 @@ function readFile(target){
     var data = [];
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
+        console.log("in readystatechange");
         if (this.readyState == 4 && this.status == 200) {
             //Do the things here
             data = parseData(this.responseText.split("\n"));
             console.log(data);
             console.log("Done?");
-            data => data;
         }
     };
-    xhttp.open("GET", target, true);
-    xhttp.send();
+    xhttp.open("GET", target, true); console.log("open()");
+    xhttp.send(); console.log("send()");
 
     console.log("data after: ");
     console.log(data);
