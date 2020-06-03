@@ -31,6 +31,7 @@ function readFile(target){
     xhttp.open("GET", target, true);
     xhttp.send();
 
+    console.log("data after: ");
     console.log(data);
 
     return data;
