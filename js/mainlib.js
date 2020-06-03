@@ -24,7 +24,7 @@ function readFile(target){
         if (this.readyState == 4 && this.status == 200) {
             //Do the things here
             data = parseData(this.responseText.split("\n"));
-            setTimeout(function(){console.log(data);}, 1000);
+            console.log(data);
             console.log("Done?");
         }
     };
