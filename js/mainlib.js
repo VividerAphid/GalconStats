@@ -26,6 +26,7 @@ function readFile(target){
             data = parseData(this.responseText.split("\n"));
             console.log(data);
             console.log("Done?");
+            data => data;
         }
     };
     xhttp.open("GET", target, true);
