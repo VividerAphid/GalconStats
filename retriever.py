@@ -54,11 +54,14 @@ def new_hour(gmc):
     baby = prep_stamp(0)
     baby2 = prep_stamp(1)
     prep_directory('/media/PISERVERSTO/galaxyRawFiles/'+ gmc + baby , baby2)
-    retrieve_files(gm + baby + '/', baby2)
+    retrieve_files(gm + baby + '/', baby2) 
 
-gm = 'GM-5-26-2020/'
+gm = 'GM-6-9-2020/'
 
 gm_running = True
+
+new_day(gm)
+new_hour(gm)
 
 last_modified = urllib.request.urlopen('http://www.galcon.com/g2/logs/GALAXY.txt', timeout=30).headers['last-modified']
 last_modified = last_modified[0:len(last_modified)-7]
