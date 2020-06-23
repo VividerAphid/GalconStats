@@ -41,6 +41,9 @@ def prep_stamp(style):
         return str(big.tm_hour) + '00'
     else:
         return str(big.tm_mon) + '-' + str(big.tm_mday) + '-' + str(big.tm_year)+ '-' + str(big.tm_hour) + '00'
+
+def new_gm(gmc):
+    prep_directory('/media/PISERVERSTO/galaxyRawFiles/', gmc)
     
 def new_day(gmc):
     baby = prep_stamp(0)
@@ -61,6 +64,7 @@ gm = input()
 
 gm_running = True
 
+new_day(gm)
 new_day(gm)
 new_hour(gm)
 
