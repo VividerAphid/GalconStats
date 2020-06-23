@@ -56,7 +56,8 @@ def new_hour(gmc):
     prep_directory('/media/PISERVERSTO/galaxyRawFiles/'+ gmc + baby , baby2)
     retrieve_files(gm + baby + '/', baby2) 
 
-gm = 'GM-6-9-2020/'
+print("Enter GM title: ")
+gm = input()
 
 gm_running = True
 
