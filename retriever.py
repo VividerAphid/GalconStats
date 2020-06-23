@@ -64,7 +64,7 @@ gm = input()
 
 gm_running = True
 
-new_day(gm)
+new_gm(gm)
 new_day(gm)
 new_hour(gm)
 
