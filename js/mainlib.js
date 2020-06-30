@@ -23,7 +23,7 @@ function readFile(target){
         console.log("Found!");
         data = parseData(res.split("\n"));
         console.log(data.length);
-        return data;
+        return ":)";
     },
      function(err){
         console.error("Failed!", err);
