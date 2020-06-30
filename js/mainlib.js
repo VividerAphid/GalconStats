@@ -20,16 +20,16 @@ function loadMap(mapIn){
 function readFile(target){
     var data = [];
     var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        console.log("in readystatechange");
-        if (this.readyState == 4 && this.status == 200) {
+    xhttp.open("GET", target, true); console.log("open()");
+    xhttp.onload = function() {
+        console.log("in onload");
+        if (this.status == 200) {
             //Do the things here
             data = parseData(this.responseText.split("\n"));
             console.log(data);
             console.log("Done?");
         }
     };
-    xhttp.open("GET", target, true); console.log("open()");
     xhttp.send(); console.log("send()");
 
     console.log("data after: ");
@@ -38,10 +38,36 @@ function readFile(target){
     return data;
 }
 
+function getData(target){
+    return new Promise(function(resolveGet, rejectGet){
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("GET", target, true);
+        xhttp.onload = function() {
+            if (this.status == 200) {
+                resolveGet(this.response);
+            }
+            else{
+                rejectGet(Error(this.statusText));
+            }
+        };
+        xhttp.onerror = function(){rejectGet(Error("Network error"))};
+        xhttp.send();
+    });
+    
+}
+
 function parseData(raw){
     var converted = [];
     for(var r = 0; r < raw.length; r++){
         converted[r] = raw[r].split("\t");
     }
     return converted;
+}
+
+function resolveGet(res){
+    console.log(res);
+}
+
+function rejectGet(err){
+    throw(err);
 }
