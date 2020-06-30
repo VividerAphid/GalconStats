@@ -22,13 +22,13 @@ function readFile(target){
     getData(target).then(function(res){
         console.log("Found!");
         data = parseData(res.split("\n"));
+        return data;
     },
      function(err){
         console.error("Failed!", err);
+        return ":(";
      }
     );
-    console.log(data);
-    return data;
 }
 
 function getData(target){
