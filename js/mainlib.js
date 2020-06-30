@@ -22,7 +22,7 @@ function readFile(target){
     getData("GALAXY.txt").then(function(res){
         console.log("Found!");
         data = parseData(res);
-        //console.log(data);
+        console.log(data);
     },
      function(err){
         console.error("Failed!", err);
