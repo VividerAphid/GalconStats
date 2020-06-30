@@ -28,7 +28,7 @@ function readFile(target){
         return ":(";
      }
     );
-    return data;
+    return data.response;
 }
 
 function getData(target){
