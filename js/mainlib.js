@@ -28,6 +28,7 @@ function readFile(target){
         return ":(";
      }
     );
+    return data;
 }
 
 function getData(target){
