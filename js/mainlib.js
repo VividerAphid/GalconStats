@@ -22,6 +22,7 @@ function readFile(target){
     getData(target).then(function(res){
         console.log("Found!");
         data = parseData(res.split("\n"));
+        console.log(data.length);
         return data;
     },
      function(err){
