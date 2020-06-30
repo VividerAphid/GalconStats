@@ -18,10 +18,10 @@ function loadMap(mapIn){
 }
 
 function readFile(target){
-    var data = await
+    var data =
     getData(target).then(function(res){
         console.log("Found!");       
-        return data = parseData(res.split("\n"));
+        return parseData(res.split("\n"));
     },
      function(err){
         console.error("Failed!", err);
