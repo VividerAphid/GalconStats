@@ -19,21 +19,15 @@ function loadMap(mapIn){
 
 function readFile(target){
     var data = [];
-    var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", target, true); console.log("open()");
-    xhttp.onload = function() {
-        console.log("in onload");
-        if (this.status == 200) {
-            //Do the things here
-            data = parseData(this.responseText.split("\n"));
-            console.log(data);
-            console.log("Done?");
-        }
-    };
-    xhttp.send(); console.log("send()");
-
-    console.log("data after: ");
-    console.log(data);
+    getData("GALAXY.txt").then(function(res){
+        console.log("Found!");
+        data = parseData(res);
+        //console.log(data);
+    },
+     function(err){
+        console.error("Failed!", err);
+     }
+    );
 
     return data;
 }
