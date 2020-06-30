@@ -18,7 +18,7 @@ function loadMap(mapIn){
 }
 
 function readFile(target){
-    var data =
+    var data = await
     getData(target).then(function(res){
         console.log("Found!");       
         return data = parseData(res.split("\n"));
