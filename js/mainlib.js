@@ -17,18 +17,25 @@ function loadMap(mapIn){
     return outmap;
 }
 
-function readFile(target){
-    var data =
+function readFile(target, type){
     getData(target).then(function(res){
-        console.log("Found!");       
-        return parseData(res.split("\n"));
+        console.log("Found!");
+        var dat = parseData(res.split("\n"));
+        switch(type){
+            case 0:
+                mapData = loadMap(dat);
+                render(mapData, g);
+                break;
+            case 1:
+                hitData = dat;
+                break;
+            case 2:
+                break;
+        }
     },
      function(err){
         console.error("Failed!", err);
-        return ":(";
-     }
-    );
-    return data.response;
+     });
 }
 
 function getData(target){
