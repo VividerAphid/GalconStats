@@ -59,10 +59,20 @@ star.prototype.drawRoutes = function(G, map){
     }
 }
 
+star.prototype.drawDebugs = function(G){
+        G.fillStyle = "#fff";
+		G.strokeStyle = "#fff";
+		G.font = "20px Arial";
+		G.fillText(this.id, this.x -20, this.y -20);
+}
+
 star.prototype.convertRoutes = function(rout){
     var routeStr = rout.split(";");
     for(var r = 0; r < routeStr.length; r++){
         routeStr[r] = routeStr[r] * 1;
+        if(routeStr[r] < 0){
+            routeStr[r] = routeStr[r] * -1;
+        }
     }
     return routeStr;
 }
