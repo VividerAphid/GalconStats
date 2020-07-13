@@ -75,3 +75,12 @@ function resolveGet(res){
 function rejectGet(err){
     throw(err);
 }
+
+function selectRoutes(targID){
+    var base = mapData[targID];
+    for(var r = 0; r < base.routes.length; r++){
+        var temp = base.routes[r];
+        mapData[temp - 1].selected = true;
+    }
+    render(mapData, g);
+}

@@ -11,7 +11,7 @@ function star(id, x, y, name, value, clanId, clanName, colour, routes, factionId
     this.factionId = factionId;
     this.production = production;
 
-    this.radius = 10;
+    this.radius = 5;
     this.selected = false;
     this.isConst = false;
     this.isPrize = false;
@@ -37,12 +37,14 @@ star.prototype.drawStar = function(G){
 }
 
 star.prototype.drawRoutes = function(G, map){
-    var reps = this.routes.length;
-    for(var r = 0; r < reps; r++){
-        var connectee = (map[this.routes[r]].id) -1;
-        if(connectee > this.id){
-            G.beginPath();
-            G.lineWidth = 3;
+    if(this.routes[0] != 0){
+        var reps = this.routes.length;
+        for(var r = 0; r < reps; r++){;
+            var targ = this.routes[r] - 1
+            var connectee = map[targ].id - 1;
+            if(connectee > this.id){
+                G.beginPath();
+                G.lineWidth = 3;
             
             if(this.factionId == map[connectee].factionId){
                 G.fillStyle = this.colour;
@@ -55,8 +57,10 @@ star.prototype.drawRoutes = function(G, map){
             G.moveTo(this.x, this.y);
             G.lineTo(map[connectee].x, map[connectee].y);
             G.stroke();
+            }
         }
     }
+    
 }
 
 star.prototype.drawDebugs = function(G){

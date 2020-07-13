@@ -22,7 +22,7 @@
 	<script>
 		document.title = adjectives[Math.floor(Math.random() * adjectives.length)] + " Landing Pad";
 		var debug = true;
-		var map = [];
+		var mapData = [];
 		var factions = [];
 		var hits = [];
 		var canvas = document.getElementById("mapCan");
@@ -36,6 +36,5 @@
 		//console.log(tstInp);
 		var mapData = readFile("GALAXY.txt", 0);
 		var hitData = readFile("HITS.txt", 1);
-		console.log(mapData);
 	</script>
 </body>
