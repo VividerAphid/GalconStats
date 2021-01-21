@@ -3,6 +3,7 @@
 	<title>Landing Pad</title>
 
 	<script src="js/star.js"></script>
+	<script src="js/faction.js"></script>
 	<script src="js/mainlib.js"></script>
 	<script src="js/utils.js"></script>
 	<link rel="stylesheet" href="index.css">
@@ -31,10 +32,8 @@
 		canvas.width = 2500;
 		canvas.height = 2500;
 		
-		//tstInp = ["id	nam	mins	mins	","1	-77	154	PrimeHole-1	24636	76	OldFarts	00ffdb	1;2	792	39", "2	675	-310	Mins-2	3708	1678	EternalHonor	db00ff	0;2	790	36", "3	339	-158	Secondcity	1809	1523	Highlander	db00ff	0;1	790	15"];
-		//tstInp = parseData(tstInp);
-		//console.log(tstInp);
 		var mapData = readFile("GALAXY.txt", 0);
 		var hitData = readFile("HITS.txt", 1);
+		var factions = readFile("FACTIONS.txt", 2);
 	</script>
 </body>

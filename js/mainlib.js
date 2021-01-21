@@ -15,9 +15,32 @@ function loadMap(mapIn){
     for(var r = 1; r < mapIn.length; r++){
         var temp = mapIn[r];
         outmap[r-1] = new star(temp[0] * 1, temp[1] * 1, temp[2] * 1, temp[3], temp[4] * 1, temp[5] * 1, temp[6], "#" + temp[7], temp[8], temp[9] * 1, temp[10]*1);
+        if(outmap[r-1].colour == "#"){
+            outmap[r-1].colour = "#fff";
+        }
     }
     //console.log(outmap);
     return outmap;
+}
+
+function loadFactions(facIn){
+    var outFacs = [];
+    for(var r = 1; r <facIn.length; r++){
+        var temp = facIn[r];
+        outFacs[r-1] = new faction(temp[0] * 1, temp[2], "#" + temp[1], temp[5]*1);
+    }
+
+    return outFacs;
+}
+
+function loadClans(clansIn){
+    var outClans = [];
+    for(var r = 1; r <clansIn.length; r++){
+        var temp = clansIn[r];
+        outFacs[r-1] = new clan(temp[0] * 1, temp[2], "#" + temp[1], temp[5]*1);
+    }
+
+    return outClans;
 }
 
 function readFile(target, type){
@@ -27,14 +50,24 @@ function readFile(target, type){
         switch(type){
             case 0:
                 mapData = loadMap(dat);
-                console.log(mapData);
+                //console.log(mapData);
                 render(mapData, g);
                 break;
             case 1:
                 hitData = dat;
                 break;
             case 2:
+                factions = loadFactions(dat);
+                //console.log(factions);
+                if(mapData != undefined){
+                    totalHits();
+                }
+                else{
+                    console.log("Map Data not loaded yet, hits were not totalled");
+                }
                 break;
+            case 3:
+                clans = loadClans
         }
     },
      function(err){
@@ -83,4 +116,17 @@ function selectRoutes(targID){
         mapData[temp - 1].selected = true;
     }
     render(mapData, g);
+}
+
+function totalHits(){
+    let count = mapData.length;
+    for(let r = 0; r < count; r++){
+        let currentStar = mapData[r];
+        for(let t = 0; t < factions.length; t++){
+            if(currentStar.factionId == factions[t].id){
+                factions[t].hitStash += currentStar.value;
+                break;
+            }           
+        }
+    }
 }
