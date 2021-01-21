@@ -10,11 +10,9 @@ body {
 	border: 3px solid rgb(175, 174, 174);
 	border-radius: 5px;
 	width: 75%;
-	left: 0;
 }
 #statBox {
 	border: 3px solid rgb(175, 174, 174);
 	border-radius: 5px;
 	width: 15%;
-	right: 0;
 }

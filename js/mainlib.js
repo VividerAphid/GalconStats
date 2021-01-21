@@ -24,10 +24,10 @@ function loadMap(mapIn){
 }
 
 function loadFactions(facIn){
-    var outFacs = [];
+    var outFacs = {};
     for(var r = 1; r <facIn.length; r++){
         var temp = facIn[r];
-        outFacs[r-1] = new faction(temp[0] * 1, temp[2], "#" + temp[1], temp[5]*1);
+        outFacs[temp[0]] = new faction(temp[0] * 1, temp[2], "#" + temp[1], temp[5]*1);
     }
 
     return outFacs;
@@ -122,11 +122,8 @@ function totalHits(){
     let count = mapData.length;
     for(let r = 0; r < count; r++){
         let currentStar = mapData[r];
-        for(let t = 0; t < factions.length; t++){
-            if(currentStar.factionId == factions[t].id){
-                factions[t].hitStash += currentStar.value;
-                break;
-            }           
+        if(currentStar.factionId != 0){
+            factions[currentStar.factionId].hitStash += currentStar.value;
         }
     }
 }

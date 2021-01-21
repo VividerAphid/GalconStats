@@ -1,1 +1,1 @@
-python3 retriever.py & python -m SimpleHTTPServer 8005 && fg
+python retriever.py & python -m http.server 8005 && fg
