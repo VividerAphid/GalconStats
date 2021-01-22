@@ -35,10 +35,15 @@ function loadFactions(facIn){
 }
 
 function loadClans(clansIn){
-    var outClans = [];
-    for(var r = 1; r <clansIn.length; r++){
-        var temp = clansIn[r];
-        outFacs[r-1] = new clan(temp[0] * 1, temp[2], "#" + temp[1], temp[5]*1);
+    let outClans = {idList: []};
+    let count = clansIn.length;
+    for(let r = 1; r < count; r++){
+        let temp = clansIn[r];
+        let tempId = clansIn[r][0];
+        if(clansIn[r][6] > 0){
+            outClans[tempId] = new clan(tempId, clansIn[r][1], factions[clansIn[r][6]], clansIn[r][3]);
+            outClans.idList.push(tempId);
+        }
     }
 
     return outClans;
@@ -69,7 +74,10 @@ function readFile(target, type){
                 }
                 break;
             case 3:
-                clans = loadClans
+                if(mapData != undefined){
+                    clans = loadClans(dat);
+                }
+                break;   
         }
     },
      function(err){
