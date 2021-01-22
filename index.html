@@ -19,13 +19,22 @@
 			<canvas id="mapCan"></canvas>
 		</div>
 		<div id="statBox">
-			<div id="ScoresHolder">Scores heer</div>
-			<br>
-			<a href="./galaxyStatsArchive/">All GM Stats Archive</a>
+			<div class="tabBar">
+				<button id="scoreButton" class="tabLink" onclick="openTab(event, 'ScoresHolder')">Scores</button>
+				<button class="tabLink" onclick="openTab(event, 'FactionInfoHolder')">Faction Info</button>
+				<button class="tabLink" onclick="openTab(event, 'AdvancedStatsHolder')">Advanced Stats</button>
+				<br>
+			</div>
+			<div id="ScoresHolder" class="tabcontent"><h2>Scores</h2></div>
+			<div id="FactionInfoHolder" class="tabcontent"><h2>Faction Info</h2></div>
+			<div id="AdvancedStatsHolder" class="tabcontent"><h2>Advanced Stats</div>	
 		</div>
+		<br>
+		<a href="./galaxyStatsArchive/">All GM Stats Archive</a>
 	</div>
 	<script>
 		document.title = adjectives[Math.floor(Math.random() * adjectives.length)] + " Landing Pad";
+		document.getElementById("scoreButton").click();
 		var debug = false;
 		var mapData = [];
 		var factions = [];

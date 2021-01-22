@@ -74,7 +74,7 @@ function readFile(target, type){
                 }
                 break;
             case 3:
-                if(mapData != undefined){
+                if(factions != undefined){
                     clans = loadClans(dat);
                 }
                 break;   
