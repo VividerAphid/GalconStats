@@ -21,6 +21,36 @@ body {
 	vertical-align: top;
 	display: inline-block;
 }
+.collapsible{
+	background-color: #222;
+	cursor: pointer;
+ 	padding: 18px;
+  	width: 100%;
+  	border: none;
+  	text-align: left;
+  	outline: none;
+	font-size: 20px;
+	margin-left: -10px;
+}
+.collapsible:after {
+	content: '\02795'; 
+	font-size: 13px;
+	float: right;
+	margin-left: 5px;
+}
+  
+.activeCollapsible:after {
+	content: "\2796";
+}
+.activeCollapsible, .collapsible:hover {
+	background-color: #222;
+}
+.collapsibleContent {
+	padding: 0 18px;
+	display: none;
+	overflow: hidden;
+	background-color: #222;
+}
 .tabBar{
 	overflow: hidden;
   	border: 1px solid #555;

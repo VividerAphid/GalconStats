@@ -76,6 +76,8 @@ function readFile(target, type){
             case 3:
                 if(factions != undefined){
                     clans = loadClans(dat);
+                    calcClanScores();
+                    fillClanScores();
                 }
                 break;   
         }
@@ -134,6 +136,23 @@ function totalHits(){
         let currentStar = mapData[r];
         if(currentStar.factionId != 0){
             factions[currentStar.factionId].hitStash += currentStar.value;
+        }
+    }
+}
+
+function calcClanScores(){
+    let count = mapData.length;
+    for(let r = 0; r < count; r++){
+        let currentStar = mapData[r];
+        if(currentStar.clanId != 0){
+            let scoreIncr = currentStar.production;
+            if(currentStar.isActiveConst){
+                scoreIncr = scoreIncr * 2;
+            }
+            if(currentStar.isPrize){
+                scoreIncr = scoreIncr * 5;
+            }
+            clans[currentStar.clanId].score += scoreIncr;
         }
     }
 }

@@ -14,6 +14,7 @@ function star(id, x, y, name, value, clanId, clanName, colour, routes, factionId
     this.radius = 5;
     this.selected = false;
     this.isConst = false;
+    this.isActiveConst = false;
     this.isPrize = false;
 }
 

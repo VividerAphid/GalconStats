@@ -14,10 +14,48 @@ function buildScoreboard(){
     for(let r = 0; r < count; r++){
         let target = factions.idList[r];
         let text = factions[target].name + " : " + factions[target].score;
-        addElement({type: "div", id: target + "ScoreDiv", class: "FactionScoreDiv", parent: parentEl, innards: text});
-        document.getElementById(target+"ScoreDiv").style.color = factions[target].colour;
+        addElement({type: "button", id: target + "ScoreButton", class: "collapsible", parent: parentEl, innards: text});
+        document.getElementById(target+"ScoreButton").style.color = factions[target].colour;
+        addElement({type: "div", id: target + "ScoreInfo", class: "collapsibleContent", parent: parentEl, innards: "Clan scores here"});
+        document.getElementById(target+"ScoreInfo").style.color = factions[target].colour;
     }
-    console.log("called scoreboard builder");
+    setUpCollapsibles();
+}
+
+function fillClanScores(){
+    let count = clans.idList.length;
+    let factionCount = factions.idList.length;
+    let text = {};
+    for(let r = 0; r < factionCount; r++){
+        text[factions.idList[r]] = "";
+    }
+    for(let r = 0; r < count; r++){
+        let currentClan = clans[clans.idList[r]];
+        let targetFaction = currentClan.faction.id;
+        text[targetFaction] += "" + currentClan.name + " : " + currentClan.score + "<br>";
+    }
+    for(let r = 0; r < factionCount; r++){
+        let targetFaction = factions.idList[r];
+        document.getElementById(targetFaction + "ScoreInfo").innerHTML = text[targetFaction];
+    }
+}
+
+function setUpCollapsibles(){
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+        this.classList.toggle("activeCollapsible");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+            content.style.display = "none";
+        } 
+        else {
+            content.style.display = "block";
+        }
+        });
+    }
 }
 
 function openTab(evt, tabName) {
@@ -29,11 +67,10 @@ function openTab(evt, tabName) {
     }
   
     tablinks = document.getElementsByClassName("tabLink");
-    console.log(tablinks);
     for (i = 0; i < tablinks.length; i++) {
       tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
   
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
-  }
+}
