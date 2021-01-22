@@ -24,10 +24,11 @@ function loadMap(mapIn){
 }
 
 function loadFactions(facIn){
-    var outFacs = {};
+    var outFacs = {idList: []};
     for(var r = 1; r <facIn.length; r++){
         var temp = facIn[r];
         outFacs[temp[0]] = new faction(temp[0] * 1, temp[2], "#" + temp[1], temp[5]*1);
+        outFacs.idList.push(temp[0]);
     }
 
     return outFacs;
@@ -58,6 +59,7 @@ function readFile(target, type){
                 break;
             case 2:
                 factions = loadFactions(dat);
+                buildScoreboard();
                 //console.log(factions);
                 if(mapData != undefined){
                     totalHits();
