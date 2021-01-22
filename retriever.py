@@ -8,7 +8,7 @@ def retrieve_files(gmFold, hourFold):
 
     url = 'http://www.galcon.com/g2/logs/'
     files = ['GALAXY.txt', 'HITS.txt', 'FACTIONS.txt', 'CLANS.txt', 'LOGS.txt']
-    path = '/media/PISERVERSTO/galaxyRawFiles/'
+    path = '/media/PISERVERSTO/serv/galaxyStatsArchive/'
     path2 = '/media/PISERVERSTO/serv/'
 
     urllib.request.urlretrieve(url + files[0], path + gmFold + hourFold + '/' + files[0])
@@ -43,11 +43,11 @@ def prep_stamp(style):
         return str(big.tm_mon) + '-' + str(big.tm_mday) + '-' + str(big.tm_year)+ '-' + str(big.tm_hour) + '00'
 
 def new_gm(gmc):
-    prep_directory('/media/PISERVERSTO/galaxyRawFiles/', gmc)
+    prep_directory('/media/PISERVERSTO/serv/galaxyStatsArchive/', gmc)
     
 def new_day(gmc):
     baby = prep_stamp(0)
-    prep_directory('/media/PISERVERSTO/galaxyRawFiles/' + gmc, baby)
+    prep_directory('/media/PISERVERSTO/serv/galaxyStatsArchive/' + gmc, baby)
 
 def new_hour(gmc):
 
@@ -56,7 +56,7 @@ def new_hour(gmc):
 
     baby = prep_stamp(0)
     baby2 = prep_stamp(1)
-    prep_directory('/media/PISERVERSTO/galaxyRawFiles/'+ gmc + baby , baby2)
+    prep_directory('/media/PISERVERSTO/serv/galaxyStatsArchive/'+ gmc + baby , baby2)
     retrieve_files(gm + baby + '/', baby2) 
 
 print("Enter GM title: ")
