@@ -1,6 +1,0 @@
-id	color	name	tag	item	score
-970	00ffa4	Paw	PAW	ship-t054	35827
-971	00abff	Bus	BUS	ship-t097	3191
-972	e400ff	Coin	COIN	ship-t063	294
-973	ff0027	Grimace	GRIM	ship-t074	2661
-974	e8ff00	Moon	MOON	ship-t038	0
