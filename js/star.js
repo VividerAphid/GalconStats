@@ -7,7 +7,6 @@ function star(id, x, y, name, value, clanId, clanName, colour, routes, factionId
     this.clanId = clanId;
     this.clanName = clanName;
     this.colour = colour;
-    this.routes = this.convertRoutes(routes);
     this.factionId = factionId;
     this.production = production;
 
@@ -16,6 +15,7 @@ function star(id, x, y, name, value, clanId, clanName, colour, routes, factionId
     this.isConst = false;
     this.isActiveConst = false;
     this.isPrize = false;
+    this.routes = this.convertRoutes(routes);localStorage
 }
 
 star.prototype.drawStar = function(G){
@@ -46,15 +46,14 @@ star.prototype.drawRoutes = function(G, map){
             if(connectee > this.id){
                 G.beginPath();
                 G.lineWidth = 3;
-            
-            if(this.factionId == map[connectee].factionId){
-                G.fillStyle = this.colour;
-                G.strokeStyle = this.colour;
-            }
-            else{
-                G.fillStyle = "#999";
-                G.strokeStyle = "#999";
-            }
+                if(this.factionId == map[connectee].factionId){
+                    G.fillStyle = this.colour;
+                    G.strokeStyle = this.colour;
+                }
+                else{
+                    G.fillStyle = "#999";
+                    G.strokeStyle = "#999";
+                }         
             G.moveTo(this.x, this.y);
             G.lineTo(map[connectee].x, map[connectee].y);
             G.stroke();
@@ -65,10 +64,10 @@ star.prototype.drawRoutes = function(G, map){
 }
 
 star.prototype.drawDebugs = function(G){
-        G.fillStyle = "#fff";
-		G.strokeStyle = "#fff";
-		G.font = "20px Arial";
-		G.fillText(this.id, this.x -20, this.y -20);
+    G.fillStyle = "#fff";
+	G.strokeStyle = "#fff";
+	G.font = "20px Arial";
+	G.fillText(this.id, this.x -20, this.y -20);
 }
 
 star.prototype.convertRoutes = function(rout){
@@ -77,6 +76,7 @@ star.prototype.convertRoutes = function(rout){
         routeStr[r] = routeStr[r] * 1;
         if(routeStr[r] < 0){
             routeStr[r] = routeStr[r] * -1;
+            //mysteryEdges.push([this.id, routeStr[r]]);
         }
     }
     return routeStr;

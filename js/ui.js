@@ -74,3 +74,17 @@ function openTab(evt, tabName) {
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
 }
+
+function toggleDebug(){
+    //console.log("ping");
+    if(debug){
+        //console.log(debug);
+        debug = false;
+    }
+    else{
+        //console.log(debug);
+        debug = true;
+    }
+    //console.log(debug);
+    render(mapData, g);
+}

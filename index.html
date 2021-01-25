@@ -23,11 +23,24 @@
 				<button id="scoreButton" class="tabLink" onclick="openTab(event, 'ScoresHolder')">Scores</button>
 				<button class="tabLink" onclick="openTab(event, 'FactionInfoHolder')">Faction Info</button>
 				<button class="tabLink" onclick="openTab(event, 'AdvancedStatsHolder')">Advanced Stats</button>
+				<button class="tabLink" onclick="openTab(event, 'ToolsHolder')">Tools</button>
 				<br>
 			</div>
 			<div id="ScoresHolder" class="tabcontent"><h2>Scores</h2></div>
 			<div id="FactionInfoHolder" class="tabcontent"><h2>Faction Info</h2></div>
-			<div id="AdvancedStatsHolder" class="tabcontent"><h2>Advanced Stats</div>	
+			<div id="AdvancedStatsHolder" class="tabcontent"><h2>Advanced Stats</div>
+			<div id="ToolsHolder" class="tabcontent">
+				<h2>Tools</h2>
+				<button id="debugToggle" onclick="toggleDebug()">Debug Mode</button>
+				<br>
+				<button id="refreshGalaxy" onclick="readFile('GALAXY.txt', 0)">Refresh GALAXY.txt</button>
+				<br>
+				<button id="refreshFactions" onclick="readFile('FACTIONS.txt', 2)">Refresh FACTIONS.txt</button>
+				<br>
+				<button id="refreshClans" onclick="readFile('CLANS.txt', 3)">Refresh CLANS.txt</button>
+				<br>
+				<button id="refreshHits" onclick="readFile('HITS.txt', 1)">Refresh HITS.txt</button>
+			</div>	
 		</div>
 		<br>
 		<a href="./galaxyStatsArchive/">All GM Stats Archive</a>
@@ -45,6 +58,7 @@
 		canvas.width = 2500;
 		canvas.height = 2500;
 		
+		var mysteryEdges = [];
 		var mapData = readFile("GALAXY.txt", 0);
 		var hitData = readFile("HITS.txt", 1);
 		var factions = readFile("FACTIONS.txt", 2);
