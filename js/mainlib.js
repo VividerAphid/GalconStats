@@ -61,7 +61,6 @@ function readFile(target, type){
         switch(type){
             case 0:
                 mapData = loadMap(dat);
-                //console.log(mapData);
                 render(mapData, g);
                 typeStr = "GALAXY.txt!";
                 break;
@@ -71,8 +70,10 @@ function readFile(target, type){
                 break;
             case 2:
                 factions = loadFactions(dat);
-                buildScoreboard();
-                //console.log(factions);
+                if(!scoreBoardLoaded){
+                    buildScoreboard();
+                }
+                fillFactionScores();
                 if(mapData != undefined){
                     totalHits();
                 }

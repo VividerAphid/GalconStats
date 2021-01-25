@@ -31,15 +31,15 @@
 			<div id="AdvancedStatsHolder" class="tabcontent"><h2>Advanced Stats</div>
 			<div id="ToolsHolder" class="tabcontent">
 				<h2>Tools</h2>
-				<button id="debugToggle" onclick="toggleDebug()">Debug Mode</button>
+				<button id="debugToggle" class="toolButton" onclick="toggleDebug()">Debug Mode</button>
 				<br>
-				<button id="refreshGalaxy" onclick="readFile('GALAXY.txt', 0)">Refresh GALAXY.txt</button>
+				<button id="refreshGalaxy" class="toolButton" onclick="readFile('GALAXY.txt', 0)">Refresh GALAXY.txt</button>
 				<br>
-				<button id="refreshFactions" onclick="readFile('FACTIONS.txt', 2)">Refresh FACTIONS.txt</button>
+				<button id="refreshFactions" class="toolButton" onclick="readFile('FACTIONS.txt', 2)">Refresh FACTIONS.txt</button>
 				<br>
-				<button id="refreshClans" onclick="readFile('CLANS.txt', 3)">Refresh CLANS.txt</button>
+				<button id="refreshClans" class="toolButton" onclick="readFile('CLANS.txt', 3)">Refresh CLANS.txt</button>
 				<br>
-				<button id="refreshHits" onclick="readFile('HITS.txt', 1)">Refresh HITS.txt</button>
+				<button id="refreshHits" class="toolButton" onclick="readFile('HITS.txt', 1)">Refresh HITS.txt</button>
 			</div>	
 		</div>
 		<br>
@@ -49,6 +49,7 @@
 		document.title = adjectives[Math.floor(Math.random() * adjectives.length)] + " Landing Pad";
 		document.getElementById("scoreButton").click();
 		var debug = false;
+		var scoreBoardLoaded = false;
 		var mapData = [];
 		var factions = [];
 		var hits = [];

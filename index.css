@@ -21,6 +21,20 @@ body {
 	vertical-align: top;
 	display: inline-block;
 }
+.toolButton{
+	border: none;
+	background-color: #555;
+	color: #ccc;
+}
+.toolButton:hover{
+	background-color: #777;
+	color: #aaa;
+}
+.toolButton.active{
+	border: none;
+	background-color: #ccc;
+	color: #222;
+}
 .collapsible{
 	background-color: #222;
 	cursor: pointer;

@@ -13,13 +13,27 @@ function buildScoreboard(){
 
     for(let r = 0; r < count; r++){
         let target = factions.idList[r];
-        let text = factions[target].name + " : " + factions[target].score;
-        addElement({type: "button", id: target + "ScoreButton", class: "collapsible", parent: parentEl, innards: text});
+        addElement({type: "button", id: target + "ScoreButton", class: "collapsible", parent: parentEl, innards: "Faction Score Here"});
         document.getElementById(target+"ScoreButton").style.color = factions[target].colour;
         addElement({type: "div", id: target + "ScoreInfo", class: "collapsibleContent", parent: parentEl, innards: "Clan scores here"});
         document.getElementById(target+"ScoreInfo").style.color = factions[target].colour;
     }
     setUpCollapsibles();
+    scoreBoardLoaded = true;
+}
+
+function buildStatsBoard(){
+    
+}
+
+function fillFactionScores(){
+    let count = factions.idList.length;
+
+    for(let r = 0; r < count; r++){
+        let targetFaction = factions.idList[r];
+        let text = factions[targetFaction].name + " : " + factions[targetFaction].score;
+        document.getElementById(targetFaction + "ScoreButton").innerHTML = text;
+    }
 }
 
 function fillClanScores(){
@@ -75,14 +89,16 @@ function openTab(evt, tabName) {
     evt.currentTarget.className += " active";
 }
 
-function toggleDebug(){
+function toggleDebug(evt){
     //console.log("ping");
     if(debug){
         //console.log(debug);
+        document.getElementById("debugToggle").className = "toolButton";
         debug = false;
     }
     else{
         //console.log(debug);
+        document.getElementById("debugToggle").className = "toolButton.active";
         debug = true;
     }
     //console.log(debug);
