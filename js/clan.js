@@ -3,6 +3,7 @@ class clan{
         this.id = id;
         this.name = name;
         this.score = 0;
+        this.starCount = 0;
         this.faction = faction;
         this.logoData = logoData;
     }

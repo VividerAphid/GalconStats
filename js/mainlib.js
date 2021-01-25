@@ -85,6 +85,8 @@ function readFile(target, type){
             case 3:
                 if(factions != undefined){
                     clans = loadClans(dat);
+                    console.log(clans);
+                    factioniseClans();
                     calcClanScores();
                     fillClanScores();
                 }
@@ -164,7 +166,18 @@ function calcClanScores(){
                 scoreIncr = scoreIncr * 5;
             }
             clans[currentStar.clanId].score += scoreIncr;
+            clans[currentStar.clanId].starCount += 1;
         }
+    }
+}
+
+function factioniseClans(){
+    let count = clans.idList.length;
+    console.log(count);
+    for(let r = 0; r < count; r++){
+        let fac = clans[clans.idList[r]].faction.id;
+        console.log(fac);
+        factions[fac].clans.push(clans[clans.idList[r]]);
     }
 }
 

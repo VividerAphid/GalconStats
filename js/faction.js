@@ -7,4 +7,11 @@ class faction{
         this.score = score;
         this.hitStash = 0;
     }
+    getStarCount(){
+        let total = 0;
+        for(let r = 0; r < this.clans.length; r++){
+            total += this.clans[r].starCount;
+        }
+        return total;
+    }
 }
