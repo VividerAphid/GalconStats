@@ -18,12 +18,36 @@ function buildScoreboard(){
         addElement({type: "div", id: target + "ScoreInfo", class: "collapsibleContent", parent: parentEl, innards: "Clan scores here"});
         document.getElementById(target+"ScoreInfo").style.color = factions[target].colour;
     }
-    setUpCollapsibles();
+    //setUpCollapsibles();
     scoreBoardLoaded = true;
 }
 
 function buildStatsBoard(){
-    
+    let count = factions.idList.length;
+    let parentEl = document.getElementById("FactionInfoHolder");
+
+    for(let r = 0; r < count; r++){
+        let target = factions.idList[r];
+        addElement({type: "button", id: target + "StatButton", class: "collapsible", parent: parentEl, innards: "Faction Title Here"});
+        document.getElementById(target+"StatButton").style.color = factions[target].colour;
+        addElement({type: "div", id: target + "StatInfo", class: "collapsibleContent", parent: parentEl, innards: "Faction stats here"});
+        document.getElementById(target+"StatInfo").style.color = factions[target].colour;
+    }
+    //setUpCollapsibles();
+    statsBoardLoaded = true;
+}
+
+function fillStatsBoard(){
+    let count = factions.idList.length;
+
+    for(let r = 0; r < count; r++){
+        let targetFaction = factions.idList[r];
+        let statsString = "Hits available: " + factions[targetFaction].hitStash + 
+        "<br>Star count: " + factions[targetFaction].getStarCount() +
+        "<br>Raw score: " + factions[targetFaction].getRawScore();
+        document.getElementById(targetFaction + "StatButton").innerHTML = factions[targetFaction].name;
+        document.getElementById(targetFaction + "StatInfo").innerHTML = statsString;
+    }
 }
 
 function fillFactionScores(){

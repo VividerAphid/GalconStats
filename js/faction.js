@@ -14,4 +14,11 @@ class faction{
         }
         return total;
     }
+    getRawScore(){
+        let total = 0;
+        for(let r = 0; r < this.clans.length; r++){
+            total += this.clans[r].rawScore;
+        }
+        return total;
+    }
 }

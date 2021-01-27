@@ -74,6 +74,9 @@ function readFile(target, type){
                     buildScoreboard();
                 }
                 fillFactionScores();
+                if(!statsBoardLoaded){
+                    buildStatsBoard();
+                }
                 if(mapData != undefined){
                     totalHits();
                 }
@@ -85,10 +88,12 @@ function readFile(target, type){
             case 3:
                 if(factions != undefined){
                     clans = loadClans(dat);
-                    console.log(clans);
                     factioniseClans();
                     calcClanScores();
                     fillClanScores();
+
+                    fillStatsBoard();
+                    setUpCollapsibles();
                 }
                 typeStr = "CLANS.txt!";
                 break;   
@@ -159,6 +164,7 @@ function calcClanScores(){
         let currentStar = mapData[r];
         if(currentStar.clanId != 0){
             let scoreIncr = currentStar.production;
+            clans[currentStar.clanId].rawScore += scoreIncr;
             if(currentStar.isActiveConst){
                 scoreIncr = scoreIncr * 2;
             }
@@ -173,10 +179,8 @@ function calcClanScores(){
 
 function factioniseClans(){
     let count = clans.idList.length;
-    console.log(count);
     for(let r = 0; r < count; r++){
         let fac = clans[clans.idList[r]].faction.id;
-        console.log(fac);
         factions[fac].clans.push(clans[clans.idList[r]]);
     }
 }
